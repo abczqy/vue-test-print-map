@@ -1,28 +1,38 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Layout style="height: 100vh">
+      <Sider style="max-height: 100vh; overflow: auto">
+        <SelfMenu />
+      </Sider>
+      <Layout>
+        <Header style="height: 50px">vue test</Header>
+        <Content style="height: calc(100vh - 50px)">
+          <router-view></router-view>
+        </Content>
+      </Layout>
+    </Layout>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import { Layout } from "ant-design-vue";
+import SelfMenu from "./components/sider";
+const { Header, Sider, Content } = Layout;
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    Layout,
+    Header,
+    Sider,
+    Content,
+    SelfMenu
   }
-}
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="less">
+html, body {
+  font-size: 14px;
+  font-family: '微软雅黑', 'microsoft-yahei', sans-serif;
+}  
 </style>
